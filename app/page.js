@@ -1,103 +1,85 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import React from 'react'
+import dynamic from 'next/dynamic'
+
+// Dynamically import the 3D model component (client-only)
+const Abstract = dynamic(() => import('./components/Abstract'), {
+  ssr: false,
+})
+
+const Page = () => {
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              app/page.js
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <section className="h-screen w-full relative overflow-hidden bg-gradient-to-br from-[#0d0c13] via-[#1a0b24] to-[#2d0b3a]">
+      {/* Cosmic background elements */}
+      <div className="absolute inset-0 bg-[url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiPjxyZWN0IHdpZHRoPSIxMDAlIiBoZWlnaHQ9IjEwMCUiIGZpbGw9InRyYW5zcGFyZW50Ii8+PGNpcmNsZSBjeD0iMTAlIiBjeT0iMTUlIiByPSIxIiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjgiLz48Y2lyY2xlIGN4PSIzMCUiIGN5PSIyMCUiIHI9IjAuNSIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC42Ii8+PGNpcmNsZSBjeD0iNzAlIiBjeT0iMzAlIiByPSIxLjIiIGZpbGw9IiNmZmYiIG9wYWNpdHk9IjAuNyIvPjxjaXJjbGUgY3g9Ijg1JSIgY3k9IjYwJSIgcj0iMC44IiBmaWxsPSIjZmZmIiBvcGFjaXR5PSIwLjUiLz48Y2lyY2xlIGN4PSI5MCUiIGN5PSIxNSUiIHI9IjAuMyIgZmlsbD0iI2ZmZiIgb3BhY2l0eT0iMC40Ii8+PC9zdmc+')] opacity-50"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-purple-900/10 via-transparent to-transparent"></div>
+      <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_30%,_#5a1a7a/20%,_transparent),_radial-gradient(circle_at_80%_70%,_#3a0d4e/15%,_transparent)]"></div>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
+      {/* Animated glowing elements */}
+      <div className="absolute top-1/4 -left-20 w-96 h-96 bg-purple-600/20 rounded-full blur-3xl opacity-30 animate-pulse"></div>
+      <div className="absolute bottom-1/3 -right-20 w-96 h-96 bg-indigo-600/20 rounded-full blur-3xl opacity-30 animate-pulse delay-1000"></div>
+
+      {/* Content container with relative positioning */}
+      <div className="relative z-10">
+        {/* Top nav */}
+        <div className="flex justify-between items-center p-6 ">
+          <h1 className="font-space text-[#fefeff] text-2xl">PulseAI</h1>
+          <ul className="flex gap-12 text-[#fefeff] font-spacelight">
+            <li>Home</li>
+            <li>About Us</li>
+            <li>Our Services</li>
+            <li>Our Work</li>
+          </ul>
+          <button className="bg-[#fdfdfd] text-[#1f1f1f] font-spacelight font-semibold py-2 px-4 rounded-xl hover:bg-opacity-90 transition-all">
+            Join Waitlist
+          </button>
         </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+        {/* Hero content */}
+        <div className="flex flex-wrap items-center justify-between px-[60px] pb-[40px] pt-[60px]">
+          {/* Left column - Text */}
+          <div className="max-w-[600px] relative z-10">
+            <div className="mb-8">
+              <div className="inline-flex items-center px-4 py-2 bg-[#1a1323] border border-green-500/30 rounded-full -mb-6">
+                <div className="w-2 h-2 bg-green-500 rounded-full mr-3 animate-pulse"></div>
+                <span className="text-[#fefeff] text-sm">
+                  Now Live: PulseAI Creative 🚀
+                </span>
+              </div>
+            </div>
+
+            <h1 className="bg-gradient-to-r from-[#e2e2e4] to-[#a9a8af] bg-clip-text text-transparent font-spacelight text-6xl font-bold leading-tight mb-8 max-w-5xl">
+              AI-Generated. <br />
+              Strategy-Driven. <br />
+              Performing content.
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-300 mb-12 max-w-3xl leading-relaxed">
+              AI content for blogs, socials, and ads. SEO optimized. Data backed.
+              Fast, smart, scalable, growth ready.
+            </p>
+
+            <div className="flex flex-col sm:flex-row gap-4">
+              <button className="px-8 py-2 bg-white text-gray-900 font-semibold rounded-lg hover:bg-gray-100 transition-all duration-200 hover:scale-105 shadow-lg hover:shadow-purple-500/20">
+                Join Waitlist
+              </button>
+              <button className="px-8 py-2 border border-gray-600 text-white font-semibold rounded-lg hover:bg-gray-800/50 transition-all duration-200 hover:scale-105 hover:border-purple-400/50">
+                Let's Explore 👇
+              </button>
+            </div>
+          </div>
+
+          {/* Right column - 3D Model */}
+          <div className="flex justify-center items-center w-full mt-4 mr-8 sm:max-w-[500px] relative z-10">
+            <Abstract />
+            {/* Glow effect around the 3D model */}
+            <div className="absolute -inset-8 bg-purple-500/10 rounded-full blur-2xl -z-10 animate-pulse"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+  )
 }
+
+export default Page
